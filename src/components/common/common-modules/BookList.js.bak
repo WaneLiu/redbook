@@ -1,0 +1,52 @@
+import React  from 'react'
+import {Router, Route, Switch, Link} from 'react-router-dom'
+import history from '../../../router/history'
+import api from '../../../modules/api/api'
+import { Flex } from 'antd-mobile';
+
+const BookList = props => {
+    let books = props.bookListData
+    console.log(books)
+    return (
+        <div className="flex-container">
+            <Flex>
+                {books.map((item, index) => {
+                    return (
+                        <Link key={index} target="_blank"
+                            to={{
+                                pathname: "/book",
+                                state: {bookId: item._id}
+                            }}                                
+                        >
+                            <img src={getImageUrl(item.cover)} onError={(e) => {
+                               this.img.src =require('../image/img-bk.png');}}/>
+                            
+                        </Link>
+                    )
+                })}
+            </Flex>
+        </div>
+    )
+}
+
+const getImageUrl = (curUrl) => {
+    if(curUrl.indexOf(api.IMG_BASE_URL)!=-1){
+        return curUrl;
+    }
+    return api.IMG_BASE_URL + curUrl;
+}
+
+const onChange = (page, pageSize) => {
+    setTimeout(()=>{
+        let curData= this.bookListData.slice((page-1)*pageSize,page*pageSize);
+        console.log(page+"-"+pageSize+",curData:"+curData.length);
+        this.setState({
+            bookListData:curData
+        });
+    },200);
+}
+
+
+
+
+export default BookList
