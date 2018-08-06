@@ -1,6 +1,6 @@
 import {TabBar} from "antd-mobile"
 import React, { PureComponent } from 'react'
-import {Router, Route, Switch} from 'react-router-dom'
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import history from '../../../router/history'
 import "../style/bookNavBar.css"
 
@@ -15,6 +15,7 @@ import my_unselected from '../image/my_unselected.svg'
 import my_selected from '../image/my_selected.svg'
 import Recommend from "../../recommendPage";
 import Search from '../../searchPage';
+import Book from "../../bookPage";
 
 class BookNavBar extends PureComponent {
     constructor(props) {
@@ -141,7 +142,7 @@ class BookNavBar extends PureComponent {
             <Switch>
                 <Route exact path="/recommend" component={Recommend}/>
                 <Route exact path="/search" component={Search}/>
-
+                <Route  path="/book" component={Book} />
             </Switch>
             </div>
             </Router>

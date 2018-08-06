@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 //import PropTypes from 'prop-types'
-import history from '../router/history'
 import request from '../modules/api/httpUtil'
 import api from '../modules/api/api'
 import { BackTop } from 'antd';

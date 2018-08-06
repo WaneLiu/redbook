@@ -1,12 +1,11 @@
 import React  from 'react'
-import {Router, Route, Switch, Link} from 'react-router-dom'
 import history from '../../../router/history'
 import api from '../../../modules/api/api'
 import { Button, WingBlank, WhiteSpace, NavBar } from 'antd-mobile';
-
+import notPic from '../image/img-bk.png'
 const BookList = props => {
     let books = props.bookListData
-    console.log(books)
+    //console.log(JSON.stringify(books))
     const styles = {
         flexContainer: {
             borderBottom: 12
@@ -67,7 +66,7 @@ const BookList = props => {
                                 <img src={getImageUrl(item.cover)} 
                                     ref={img => this.img = img}
                                     onError={(e) => {
-                                        this.img.src = require('../image/img-bk.png');}}
+                                        this.img.src = {notPic}}}
                                     style={styles.bookCover} alt="加载失败"
                                 />
                                 <div className="right" style={styles.bookRight}>
@@ -83,11 +82,12 @@ const BookList = props => {
                                         <Button type="ghost" size="small"
                                             onClick={() => {
                                                 history.push({
-                                                    pathname: `/book?bookId=${item._id}`,
+                                                    pathname: '/book',
+                                                    search: `bookId=${item._id}`
                                                 })
                                             }}
                                         >
-                                            开始阅读
+                                            查看详情
                                         </Button>
                                     </p>
                                 </div>

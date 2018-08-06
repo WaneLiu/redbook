@@ -1,0 +1,18 @@
+{
+    "presets": [
+      "react-app",
+      "es2015", "stage-2", "react"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd-mobile",
+          "style": "css",
+          "libraryDirectory": "lib"
+        }
+      ],
+      ["syntax-dynamic-import"]
+    ],
+    "comments": false
+  }

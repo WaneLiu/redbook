@@ -4,7 +4,7 @@ import api from '../modules/api/api'
 
 export let discoverCategoryList = () => {
     return dispatch => {
-        return request.get(api.DISCOVER_CATEGORY_LIST, null,
+        return request.get(api.DISCOVER_CATEGORY_LIST, null,//添加了fetch url的前缀，补全url
             (data) => {
                 if (data.ok) {
                     dispatch(getCategoryListSuccess(data));
